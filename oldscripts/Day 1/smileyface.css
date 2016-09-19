@@ -1,0 +1,99 @@
+.wrapper{
+  margin: 5px;
+}
+/* Smiley face */
+.face{
+  width:75px;
+  height:75px; 
+  border:solid 2px black;
+  background-color: yellow; 
+  border-radius: 50px;
+}
+
+.lefteye{
+  width:6px;
+  height:6px;
+  border:solid 1px black;
+  border-radius:3px;
+  z-index: 1;
+  position:relative;
+  left:32px;
+  top: 26px;
+  background-color:black;
+}
+
+#inner-left{
+  width:2px;
+  height:2px;
+  border:solid 1px white;
+  border-radius:2px;
+  position:relative;
+  left:2px;
+  top: 2px;
+  background-color:white
+}
+
+.righteye{
+  width:6px;
+  height:6px; 
+  border:solid 1px black;
+  border-radius:3px;
+  z-index:1;
+  position:relative;
+  left:54px;
+  top:18px;
+  background-color:black;
+}
+
+#inner-right{
+  width:2px;
+  height:2px; 
+  border:solid 1px white;
+  border-radius:3px;
+  z-index:1;
+  position:relative;
+  left:2px;
+  top:2px;
+  background-color:white
+  
+}
+.mouth{
+  width:30px;
+  height:10px; 
+  border:solid 1px black;
+  border-radius:0px 0px 45px 45px; /*Adjust this to change expression*/
+  margin:16px;
+  position:relative;
+  top:1em;
+  left:1em;
+  background-color:black;
+}
+.eyeBrow{
+  height: 2px;
+  width: 7px;
+  background-color:black;
+  position:relative;
+  left:0px;
+  bottom:8px;
+}
+.tongue{
+  width:10px;
+  height:4px;
+  top:5px;
+  left:10px;
+  background-color:#FF7777;
+  border-radius:2px;
+  color:#FFFFFF;
+  position:relative;
+}
+.goatee{
+  width: 0px;
+  height 0px;
+  border-right: 3px solid transparent;
+  border-left:3px solid transparent;
+  border-top:5px solid black;
+  border-bottom: 0px solid black;
+  position: relative;
+  left:45px;
+  top: 2px;
+}

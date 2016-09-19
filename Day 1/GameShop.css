@@ -1,0 +1,52 @@
+body{
+	background-image:url("http://wallpapercave.com/wp/F3ILrJM.jpg");
+}
+.wrapper{
+
+	margin: 5px;
+
+}
+
+
+.nav{
+
+	background-image: url("http://cdn1.bigcommerce.com/server3900/ca30d/product_images/uploaded_images/sullen.jpg");
+
+	background-size: 100% 100%;
+
+	position: fixed;
+
+	top: 10;
+
+	right: 0;
+
+	width: 250px;
+
+	border: 3px solid navy;
+
+}
+
+.positioning{
+	background-image: url("http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13402172_561062837400544_843557884_n.jpg?ig_cache_key=MTI2NjA0MTM2Mjk1MTQyNTc5Nw%3D%3D.2");
+
+	width: 100%;
+
+    color: red;
+}
+
+.positioning h1{
+
+	text-align: center;
+
+}
+
+.lotsoftext{
+	background-image: url("http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13267507_1195285910495130_1688308383_n.jpg?ig_cache_key=MTI1ODI0NTgwMzkwMTQzOTA3OA%3D%3D.");
+
+	text-align: left;
+
+	width: 100%;
+	
+	color: red;
+
+}
