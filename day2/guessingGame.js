@@ -23,10 +23,12 @@ function handleGuess(){
     if (+guess == answer){
         $("#message").text("How did you guess it right?!");
         
+        
    }
     else{
          $("#message").text("Why do you even bother? Try again!!");
          $("#tbxGuess").val("");
+         
 
         
 
