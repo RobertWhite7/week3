@@ -13,9 +13,7 @@ $("div").css("color", "red");
 
    
    
-$(function(){
 
-});
    
    
    
