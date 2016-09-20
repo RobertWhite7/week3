@@ -9,7 +9,7 @@ function setupGame(){
     
 
     // Come up with an answer
-    answer = parseInt(Math.random() * 1000);
+    answer = parseInt(Math.random() * 99);
     console.log("Having fun yet?" + answer);
     // Hide and sHow the appropriate divs.
     $("#intro").show();
@@ -26,6 +26,8 @@ function handleGuess(){
    }
     else{
          $("#message").text("Why do you even bother? Try again!!");
+         $("#tbxGuess").val("");
+
         
 
     }
@@ -36,10 +38,13 @@ function playGame(){
      $("#intro").hide();
     $("#game").show();
     
+   $("#tbxGuess").focus();
 }
 $(function(){
     $("#startGame").on("click", playGame);
+  
     $("#guess").on("click", handleGuess);
+   
     setupGame();
 
 });
