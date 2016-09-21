@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="slate-theme.css">
+
+</head>
+
+<body>
+
+    <script>
+
+    $(function(){
+       
+       $.ajax({
+            url:"https://api.darksky.net/forecast/3076dd7488b4447914c19faca690a9f0/37.8267,-122.4233",
+            dataType: "jsonp",
+            success: function(result) {
+                console.log(result.currently.summary);
+                console.log(result.latitude);
+                console.log(result.longitude);
+                console.log(result.timezone);
+                var hour1 = result.hourly.data[0];
+                var time = new Date(hour1.time *1000);
+                console.log(time.toLocaleString());
+                var timeSummary="9/21/2016 - Partly Cloudy";
+                console.log(timeSummary);
+                  var timeSummary2="9/22/2016 - Partly Cloudy";
+                console.log(timeSummary2);
+                  var timeSummary3="9/23/2016 - Rainy";
+                console.log(timeSummary3);
+
+            }
+   
+       });
+
+    });
+
+</script>
+</body>
+
+</html>
