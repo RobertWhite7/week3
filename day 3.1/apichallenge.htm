@@ -22,6 +22,8 @@
 
     <script>
 
+        
+
     $(function(){
        
        $.ajax({
@@ -35,18 +37,22 @@
                 var hour1 = result.hourly.data[0];
                 var time = new Date(hour1.time *1000);
                 console.log(time.toLocaleString());
-                var timeSummary="9/21/2016 - Partly Cloudy";
-                console.log(timeSummary);
-                  var timeSummary2="9/22/2016 - Partly Cloudy";
-                console.log(timeSummary2);
-                  var timeSummary3="9/23/2016 - Rainy";
-                console.log(timeSummary3);
+            
 
             }
    
        });
 
+     $.ajax({
+         url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCst46ow9Ebcp_dtMwT_GaeVM4Thuqovpo",
+         dataType: "json",
+         success: function(results){
+         console.log(results);
+         } 
     });
+    });
+  
+
 
 </script>
 </body>

@@ -1,0 +1,68 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+.sunny{
+    background-image: url("http://feelgrafix.com/data_images/out/15/899287-sunny-day.jpg");
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}
+.rain{
+    background-image: url("http://previews.123rf.com/images/merzavka/merzavka1003/merzavka100300013/6605738-blue-water-bubbles-on-the-window-for-background--Stock-Photo.jpg");
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}
+.fog{
+    background-image: url("http://img.photobucket.com/albums/v58/PixelMagic/Blog%20Images/fog_element.jpg");
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}
+.snow{
+    background-image: url("http://cdn.wallpapersafari.com/23/84/nlTirz.jpg");
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}
+.sleet{
+    background-image: url("http://previews.123rf.com/images/eugenesergeev/eugenesergeev1303/eugenesergeev130300070/18534293-Pedestrians-footprints-in-road-blue-ice-Street-sleet-background-Stock-Photo.jpg");
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}
+.cloudy{
+    background-image: url("background-image:url('http://img12.deviantart.net/d5ad/i/2015/179/5/d/clouds_background_landscape_2__stock__by_evil0verlady-d8z3636.jpg");
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}
+div{
+    border-radius: 5px; 
+    margin: 3px; 
+    height: 400px; 
+    text-align: center; 
+    color: white;
+
+}

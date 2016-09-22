@@ -40,6 +40,13 @@
      var hour1 = result.hourly.data[0];
      var time = new Date(hour1.time *1000);
      console.log("Time" + time.toLocaleString());
+
+
+var hours = result.hourly.data;
+for (var i= 0; i < hours.length; i++){
+    var time = new Date(hour[i].time * 1000);
+    console.log(time.toLocaleString() + " - " + hours[i].summary);
+}
  }
     $(function(){
        
