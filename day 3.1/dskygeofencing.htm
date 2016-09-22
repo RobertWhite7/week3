@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <script type="text/javascript" src="guessingGame.js"></script>
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -51,22 +53,18 @@ $(document).ready(function (){
 </head>
 
 <body>
-
-
-    <div class="form-group row">
-        <label for="search-input" class="col-xs-12 col-form-label">Lookup Weather For Your Zip Code!</label>
-        <div class="col-xs-4">
-            <input class="form-control" type="search" value="" " id="search-input ">
-  </div>
-</div>
-
-<a name="#ajax-getjsonp "></a>
-<div id="section38 ">   
-    
-    <div id="div381 "></div>
-    <button id="lookupWeatherForPostalCode" type="button "/><a class="btn btn-large btn-success" href="#google_complete">Send Zip</a>
-</div>
-
+  <div id="game">
+      <fieldset>
+          <label>Weather
+              <input type="text" maxlength="5" id="zipCode" placeholder="Your Zip"/>
+        
+         </label>
+          <br/><br/>
+          <a class="button" href="file:///Users/robertwhite/Desktop/week3/day%203.1/weatherly.htm">Lookup</a>
+          <br/><br/>
+          <span id="message"></span>
+      </fieldset>
+      </div>
     <script>
   
         function lookupWeatherForPostalCode_Click() {
@@ -116,29 +114,18 @@ $(document).ready(function (){
 
  $.ajax(request);
 
- function lookupLatLong_comple(result){
+ function lookupLatLong_complete(result){
     var latitude = result.results["0"].geometry.location.lat;
     var longitude = result.results["0"].geometry.location.lng;
     console.log("The lat and long is " + latitude + ", " + longitude);
  }
    
-    function lookupLatLong(city, state, postalCode){
-        var address = "";
-        if (location.length != 0) {
-            address = location;
 
-        }
-        else if(city.length != 0 && state != 0){
-            address = city;
-        }
-        else{
-            return;
-        }
         var googleUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBnKuo11baAEflbC-XhzUwxabQuawina9I";
 
             var request = {
                 url: googleUrl,
-                success: lookupLatLong_Complete
+                success: lookupLatLong_complete
             };
 
             $.ajax(request);
@@ -150,7 +137,6 @@ $(document).ready(function (){
             lookupLatLong("", "", pcode);
         }
 
-    
 
         $(function() {
             $("#lookupWeatherForPostalCode").on("click", lookupWeatherForPostalCode_Click)

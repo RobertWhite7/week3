@@ -33,7 +33,7 @@
                 Lookup Weather for Postal Code:
             </div>
             <div class="col-md-8">
-                <label>Enter a postal code: <input type="text" id="postalCode" placeholder="postal code" /></label>
+                <label>Enter a postal code: <input type="text" id="location" placeholder="location" /></label>
                 <button type="button" id="lookupWeatherForPostalCode">Lookup</button>
             </div>
         </div>
@@ -51,7 +51,7 @@
             console.log("The lat and long is " + latitude + ", " + longitude);
         }
 
-        function lookupLatLong(city, state, postalCode) {
+        function lookupLatLong(city, state, location) {
             // Create the address.
             var address = "";
             if (postalCode.length != 0) {
@@ -69,7 +69,7 @@
 
             var request = {
                 url: googleUrl,
-                success: lookupLatLong_Complete
+                success: lookupLatLong_Complete;
             };
 
             $.ajax(request);
@@ -79,7 +79,7 @@
         // **  Event Handlers  **
         // **********************
         function lookupWeatherForPostalCode_Click() {
-            var pcode = $("#postalCode").val();
+            var pcode = $("#location").val();
             lookupLatLong("", "", pcode);
         }
 
