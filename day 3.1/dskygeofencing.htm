@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="slate-theme.css">
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    
 
     <script type="text/javascript">
 function loadUrl(newLocation){
@@ -43,8 +43,7 @@ $(document).ready(function (){
               "Weather : ", d.Weather, "<br>");        
             });
        });
-    
-     });
+    });
 });
 </script>
 
@@ -53,63 +52,113 @@ $(document).ready(function (){
 
 <body>
 
+
     <div class="form-group row">
-        <label for="search-input" class="col-xs-12 col-form-label">City</label>
-        <div class="col-xs-3">
-            <input class="form-control" type="search" value="" id="each-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="search-input" class="col-xs-12 col-form-label">State</label>
-        <div class="col-xs-3">
-            <input class="form-control" type="search" value="" id="search-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="search-input" class="col-xs-12 col-form-label">Zip</label>
-        <div class="col-xs-3">
+        <label for="search-input" class="col-xs-12 col-form-label">Lookup Weather For Your Zip Code!</label>
+        <div class="col-xs-4">
             <input class="form-control" type="search" value="" " id="search-input ">
   </div>
 </div>
 
 <a name="#ajax-getjsonp "></a>
 <div id="section38 ">   
-    <div>Weather</div>
+    
     <div id="div381 "></div>
-    <button id="btn382 " type="button ">Your location</button>
+    <button id="lookupWeatherForPostalCode" type="button "/><a class="btn btn-large btn-success" href="#google_complete">Send Zip</a>
 </div>
 
     <script>
+  
+        function lookupWeatherForPostalCode_Click() {
+            var pcode = $("#postalCode").val();
+            console.log("The value of the postal code box is " + pcode);
+        }
 
+ 
+
+        $(function() {
+            $("#PostalCode").on("click", lookupWeatherForPostalCode_Click)
+        });
+
+  function darksky_complete(result){
+     console.log(result.currently.summary);
+     var hour1 = result.hourly.data[0];
+     var time = new Date(hour1.time *1000);
+     console.log("Time" + time.toLocaleString());
+
+
+
+}
+ 
     $(function(){
        
-       $.ajax({
-            url:"https://api.darksky.net/forecast/3076dd7488b4447914c19faca690a9f0/37.8267,-122.4233 ",
-            dataType: "jsonp ",
-            success: function(result) {
-                console.log(result.currently.summary);
-                console.log(result.latitude);
-                console.log(result.longitude);
-                console.log(result.timezone);
-                var hour1 = result.hourly.data[0];
-                var time = new Date(hour1.time *1000);
-                console.log(time.toLocaleString());
+      var request = {
+            url:"https://api.darksky.net/forecast/3076dd7488b4447914c19faca690a9f0/37.8267,-122.4233",
+            dataType: "jsonp",
+            success: darksky_complete
+      };
+
+   $.ajax(request);
+
+    });
+ 
+  function google_complete(result){
+     console.log(result.results[0].geometry.location);
+  } 
+     $(function(){
+       
+      var request = {
+            url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBnKuo11baAEflbC-XhzUwxabQuawina9I",
+            dataType: "json",
+            success: google_complete
             
+      };
 
-            }
+ $.ajax(request);
+
+ function lookupLatLong_comple(result){
+    var latitude = result.results["0"].geometry.location.lat;
+    var longitude = result.results["0"].geometry.location.lng;
+    console.log("The lat and long is " + latitude + ", " + longitude);
+ }
    
-       });
+    function lookupLatLong(city, state, postalCode){
+        var address = "";
+        if (location.length != 0) {
+            address = location;
 
-     $.ajax({
-         url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCst46ow9Ebcp_dtMwT_GaeVM4Thuqovpo ",
-         dataType: "json ",
-         success: function(results){
-         console.log(results);
-         } 
-    });
+        }
+        else if(city.length != 0 && state != 0){
+            address = city;
+        }
+        else{
+            return;
+        }
+        var googleUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBnKuo11baAEflbC-XhzUwxabQuawina9I";
 
+            var request = {
+                url: googleUrl,
+                success: lookupLatLong_Complete
+            };
 
-    });
+            $.ajax(request);
+        }
+
+    
+        function lookupWeatherForPostalCode_Click() {
+            var pcode = $("#postalCode").val();
+            lookupLatLong("", "", pcode);
+        }
+
+    
+
+        $(function() {
+            $("#lookupWeatherForPostalCode").on("click", lookupWeatherForPostalCode_Click)
+        });
+
+    
+ });
+
 
   
 
