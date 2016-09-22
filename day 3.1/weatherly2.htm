@@ -15,9 +15,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-         <link rel="stylesheet" type="text/css" href="slate-theme.css">
-         <link rel="stylesheet" type="text/css" href="weatherly2.css">
-         <link rel="stylesheet" type="text/css" href="weatherly2.js">
+    <link rel="stylesheet" type="text/css" href="slate-theme.css">
+    <link rel="stylesheet" type="text/css" href="weatherly2.css">
+    <link rel="stylesheet" type="text/css" href="weatherly2.js">
+
+    <script>
+
+            $(function(){
+       
+       $.ajax({
+            url:"https://api.darksky.net/forecast/3076dd7488b4447914c19faca690a9f0/37.8267,-122.4233",
+            dataType: "jsonp",
+            success: function(result) {
+                console.log(result.latitude);
+                console.log(result.longitude);
+              
+
+            }
+       });
+       
+
+    });
+</script>
+
 
 </head>
 
@@ -44,48 +64,11 @@
     </div>
 
     <div class="container">
-   <div class="row, col-md-3" id="card">
+        <div class="row, col-md-3" id="card">
 
+        </div>
     </div>
-</div>
-    <script>
-        switch (new card().getresult()) {
-    case 0:
-        card = "sunny";
-        break;
-    case 1:
-        card = "rain";
-        break;
-    case 2:
-        card = "fog";
-        break;
-    case 3:
-        card = "snow";
-        break;
-    case 4:
-        card = "sleet";
-        break;
-    case 5: 
-        card = "cloudy";
-        break;
- 
-}
-            $(function(){
-       
-       $.ajax({
-            url:"https://api.darksky.net/forecast/3076dd7488b4447914c19faca690a9f0/37.8267,-122.4233",
-            dataType: "jsonp",
-            success: function(result) {
-                console.log(result.latitude);
-                console.log(result.longitude);
-              
 
-            }
-       });
-       
-
-    });
-    </script>
 
 </body>
 
