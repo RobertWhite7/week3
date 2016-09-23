@@ -1,10 +1,14 @@
 
-
+var darkSky= "darksky_complete";
 
 
 function darksky_complete(result) {
-    console.log(result.currently.summary);
+    console.log(result.latitude);
+    console.log(result.longitude);
     console.log(result.timezone);
+    console.log(result.currently.icon);
+    console.log(result.currently.time);
+    console.log(result.currently.tempature);
 }
 
 
@@ -65,18 +69,18 @@ function lookupWeatherForPostalCode_Click() {
 
 }
 
-function generateCard(data) {
+function generateCard(darkSky) {
     // Insert the original HTML into a string by reading from the div. I wrote the HTML first, tested it looked right, 
     // then grabbed it as a string by asking jQuery to go get me the HTML from the DOM.
     var template = $("#templateDiv").html(); // gets the html from inside the templateDiv div
 
     // Swap out the values.
-    template = template.replace("@@IMGURL@@", data.latitude);
-    template = template.replace("@@NAME@@", data.longitude);
-    template = template.replace("@@LOCATION@@", data.timezone);
-    template = template.replace("@@IMGURL@@", data.currently.icon);
-    template = template.replace("@@NAME@@", data.currently.time);
-    template = template.replace("@@LOCATION@@", data.currently.tempature);
+    template = template.replace("@@IMGURL@@", darkSky.latitude);
+    template = template.replace("@@NAME@@", darkSky.longitude);
+    template = template.replace("@@LOCATION@@", darkSky.timezone);
+    template = template.replace("@@IMGURL@@", rdarkSky.currently.icon);
+    template = template.replace("@@NAME@@", darkSky.currently.time);
+    template = template.replace("@@LOCATION@@", darkSky.currently.tempature);
 
     // Return the new HTML.
     return template;
@@ -84,7 +88,7 @@ function generateCard(data) {
 
 
 // The divs will automatically wrap because of Bootstrap knowing it's a col-md-3.
-var html = generateCard(data);
+var html = generateCard(darkSky);
 $("#cards").append(html);
 
         

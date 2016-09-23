@@ -44,10 +44,11 @@
     </div>
   <div class="container">
        
+  <div class="container">
+       
         <div class="row" id="cards">
         </div>
     </div>
-
         <div id="templateDiv" style="display: none">
         <div class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;">
             <div class="row" style="text-align: center;"><img src="@@IMGURL@@" style="height: 150px; width: 150px; padding: 25px 10px;" /></div>
@@ -56,34 +57,9 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-
-        function generateCard(data) {
-            // Insert the original HTML into a string by reading from the div. I wrote the HTML first, tested it looked right, 
-            // then grabbed it as a string by asking jQuery to go get me the HTML from the DOM.
-            var template = $("#templateDiv").html(); // gets the html from inside the templateDiv div
-
-            // Swap out the values.
-            template = template.replace("@@IMGURL@@",data.latitude);
-            template = template.replace("@@NAME@@", data.longitude);
-            template = template.replace("@@LOCATION@@", data.timezone);
-            template = template.replace("@@IMGURL@@",data.currently.icon);
-            template = template.replace("@@NAME@@", data.currently.time);
-            template = template.replace("@@LOCATION@@", data.currently.tempature;
-
-            // Return the new HTML.
-            return template;
-        }
 
 
-            // The divs will automatically wrap because of Bootstrap knowing it's a col-md-3.
-            var html = generateCard(sampleData);
-            $("#cards").append(html);
-
-        }
-
-
-    </script>
+   
 </body>
 
 </html>
