@@ -1,24 +1,21 @@
 $(function () {
 
     $.ajax({
-        url: "https://api.darksky.net/forecast/3076dd7488b4447914c19faca690a9f0/37.8267,-122.4233",
-        dataType: "jsonp",
-        success: function (result) {
-            console.log(result.latitude);
-            console.log(result.longitude);
-            console.log(result.timezone);
+     
        }
-          function darksky_complete(result){
+     function darksky_complete(result){
      console.log(result.currently.summary);
      var hour1 = result.hourly.data[0];
      var time = new Date(hour1.time *1000);
      console.log("Time" + time.toLocaleString());
+
                       
             $.ajax({
             url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBnKuo11baAEflbC-XhzUwxabQuawina9I";
             dataType: "json",
             success: function (result) {
                 console.log(result.results.formatted_address.geometry);
+                
 
             }
                function lookupLatLong(city, state, location) {
@@ -27,14 +24,14 @@ $(function () {
                 if(postalCode.length != 0) {
                     address = postalCode.trim();
                 }
-            else if (city.length != 0 && state != 0) {
+                else if (city.length != 0 && state != 0) {
                     address = city.trim() + ", " + state;
                 }
-            else {
+                 else {
                     return; 
                 }
-               
-                     function lookupLatLong_Complete(result) {
+               }
+                function lookupLatLong_Complete(result) {
                 var latitude = result.results["0"].geometry.location.lat;
                 var longitude = result.results["0"].geometry.location.lng;
                 console.log("The lat and long is " + latitude + ", " + longitude);

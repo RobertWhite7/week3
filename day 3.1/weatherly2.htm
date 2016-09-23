@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" type="text/css" href="slate-theme.css">
     <link rel="stylesheet" type="text/css" href="weatherly2.css">
-    <link rel="stylesheet" type="text/css" href="weatherly2.js">
+    <link rel="stylesheet" type="text/css" href="weatherlyy.js">
 
 <script>
     var card= "sunny";
@@ -40,7 +40,7 @@ switch (card){
     
     case "cloudy":
     break;
-    return;
+   
 }
 </script>
 
@@ -62,8 +62,8 @@ switch (card){
                 Lookup Weather for Postal Code:
             </div>
             <div class="col-md-8">
-                <label>Zip Code: <input type="text" id="location" placeholder="location" /></label>
-                <button><a type= "submit" href="#LookupWeatherForPostalCode" class="btn btn-default" onclick="lookupWeatherForPostalCode_Click">Lookup</a></button>
+                <input  type="text" id="postalCode" placeholder="location"> Zip Code</input>
+                <button id="postButton" type= "submit" class="btn btn-default" >Lookup</button>
             </div>
         </div>
     </div>
