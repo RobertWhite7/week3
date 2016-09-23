@@ -19,7 +19,30 @@
     <link rel="stylesheet" type="text/css" href="weatherly2.css">
     <link rel="stylesheet" type="text/css" href="weatherly2.js">
 
+<script>
+    var card= "sunny";
+switch (card){
+    
+    case "sunny":
+    break;
+   
+    case "rain":
+     break;
+    
+    case "fog":
+    break;
 
+    case "snow":
+    break;
+   
+    case "sleet":
+    break;
+    
+    case "cloudy":
+    break;
+    return;
+}
+</script>
 
 </head>
 
@@ -40,7 +63,7 @@
             </div>
             <div class="col-md-8">
                 <label>Zip Code: <input type="text" id="location" placeholder="location" /></label>
-                <button><a type= "submit" href="#LookupWeatherForPostalCode" class="btn btn-default" onclick="card">Lookup</a></button>
+                <button><a type= "submit" href="#LookupWeatherForPostalCode" class="btn btn-default" onclick="lookupWeatherForPostalCode_Click">Lookup</a></button>
             </div>
         </div>
     </div>
