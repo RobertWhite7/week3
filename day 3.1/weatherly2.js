@@ -1,3 +1,6 @@
+//js brainstorm pages
+
+
 $(function () {
 
     $.ajax({
