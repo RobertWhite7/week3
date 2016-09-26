@@ -1,6 +1,9 @@
-
-var darkSky= "darksky_complete";
-
+var time;
+var icon;
+var latitude;
+var longitude;
+var city;
+var tempature;
 
 function darksky_complete(result) {
     console.log(result.latitude);
@@ -9,13 +12,19 @@ function darksky_complete(result) {
     console.log(result.currently.icon);
     console.log(result.currently.time);
     console.log(result.currently.tempature);
+    icon=result.currently.icon
+    tempature =result.currently.tempature
+    
+
 }
 
 
 function lookupLatLong_Complete(result) {
-
-    var latitude = result.results["0"].geometry.location.lat;
-    var longitude = result.results["0"].geometry.location.lng;
+    
+     city= result.results["0"].formatted_address;
+     
+     latitude = result.results["0"].geometry.location.lat;
+     longitude = result.results["0"].geometry.location.lng;
     console.log("The lat and long is " + latitude + ", " + longitude);
 
 
@@ -56,12 +65,12 @@ function lookupLatLong(city, state, postalCode) {
 }
 
 
-/*  function lookupWeatherForPostalCode_Click() {
+ function lookupWeatherForPostalCode_Click() {
           var pcode = $("#postalCode").val();
           lookupLatLong("", "", pcode);
           console.log(test);
        
-      } */
+      } 
 
 function lookupWeatherForPostalCode_Click() {
     var pcode = $("#postalCode").val();
@@ -69,18 +78,39 @@ function lookupWeatherForPostalCode_Click() {
 
 }
 
-function generateCard(darkSky) {
-    // Insert the original HTML into a string by reading from the div. I wrote the HTML first, tested it looked right, 
-    // then grabbed it as a string by asking jQuery to go get me the HTML from the DOM.
-    var template = $("#templateDiv").html(); // gets the html from inside the templateDiv div
+function generateCard() {
+ 
+    var template = $("#templateDiv").html(); 
 
-    // Swap out the values.
-    template = template.replace("@@IMGURL@@", darkSky.latitude);
-    template = template.replace("@@NAME@@", darkSky.longitude);
-    template = template.replace("@@LOCATION@@", darkSky.timezone);
-    template = template.replace("@@IMGURL@@", rdarkSky.currently.icon);
-    template = template.replace("@@NAME@@", darkSky.currently.time);
-    template = template.replace("@@LOCATION@@", darkSky.currently.tempature);
+            switch(icon){
+             case "clear-day":
+             case "clear-night":
+             case "rain":
+             case "fog":
+             case "snow":
+             case "sleet":
+             case "cloudy":
+             case "wind":
+             case "partly-cloudy-day":
+             case "partly-cloudy-night":
+               template = template.replace("@@help@@", icon);
+               break;
+               default:
+                 template = template.replace("@@help@@", "http://wallpapercave.com/wp/4W2pw5V.jpg");
+               break;
+         }
+                 
+
+    
+    template = template.replace("@@time@@", time);
+    template = template.replace("@@icon@@", icon);
+    template = template.replace("@@latitude@@", latitude);
+    template = template.replace("@@longitude@@", longitude);
+    template = template.replace("@@city@@", city);
+    template = template.replace("@@tempature@@", tempature);
+    
+    
+
 
     // Return the new HTML.
     return template;
@@ -88,15 +118,18 @@ function generateCard(darkSky) {
 
 
 // The divs will automatically wrap because of Bootstrap knowing it's a col-md-3.
-var html = generateCard(darkSky);
+function generateCard(result){
+var html = generateCard;
 $("#cards").append(html);
+}
 
         
 
 
 $(function () {
-    $("#postButton").on("click", lookupWeatherForPostalCode_Click, generateCard)
+    $("#postButton").on("click", lookupWeatherForPostalCode_Click)
 });
+ 
 
 
 
